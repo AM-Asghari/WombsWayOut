@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed,cameraRotationSpeed;
     void Start()
     {
-        
+        Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetAxis("Horizontal") != 0|| Input.GetAxis("Vertical") != 0)
+        {
+            transform.Translate(speed * Time.deltaTime * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized);
+        }
+        if(Input.GetAxis("Mouse X") != 0)
+        {
+            transform.Rotate(0,Input.GetAxis("Mouse X") * Time.deltaTime * cameraRotationSpeed, 0);
+        }
     }
 }
