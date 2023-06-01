@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.8
-  cameraRotationSpeed: 500
+  cameraRotationSpeed: 250
 --- !u!54 &74906715
 Rigidbody:
   m_ObjectHideFlags: 0
