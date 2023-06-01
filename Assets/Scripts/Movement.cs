@@ -16,9 +16,9 @@ public class Movement : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized);
         }
-        if(Input.GetAxis("Mouse X") != 0)
+        if(Input.GetAxis("CameraRotation") != 0)
         {
-            transform.Rotate(0,Input.GetAxis("Mouse X") * Time.deltaTime * cameraRotationSpeed, 0);
+            transform.Rotate(0,Input.GetAxis("CameraRotation") * Time.deltaTime * cameraRotationSpeed, 0);
         }
     }
 }
