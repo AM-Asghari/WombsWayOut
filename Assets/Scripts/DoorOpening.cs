@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
-    public Transform doorPivot;
-    public float multiplier;
+    public bool open;
+    public Animator animator;
     void Start()
     {
-        
     }
 
     void Update()
     {
-        if(doorPivot.rotation.w > 0.175) 
+        animator.SetBool("opened", open);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("player"))
         {
-            doorPivot.Rotate(new Vector3(0, Time.deltaTime * multiplier, 0));
+            open = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("player"))
+        {
+            open = false;
         }
     }
 }
