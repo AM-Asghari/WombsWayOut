@@ -17,6 +17,7 @@ public class Vision : MonoBehaviour
     //Create all of these variables, most of them are self explanatory, but for the ones that aren't i've added a comment to clue you in on what they do
     //for the ones that you dont understand dont worry, just follow along
 
+    bool PlayerSeen = false;
     NavMeshAgent agent;
     public Transform target;
     Vector3 destination;
@@ -62,14 +63,18 @@ public class Vision : MonoBehaviour
             }
             if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit _hit, VisionRange, EnemyLayer))
             {
+                PlayerSeen = true;
                 Debug.Log("enemy seen");
-                if (Vector3.Distance(destination, target.position) > 1.0f)
+                if (Vector3.Distance(destination, target.position) > 1.0f && PlayerSeen == true)
                 {
                     destination = target.position;
                     agent.destination = destination;
                 }
             }
-
+            else
+            {
+                PlayerSeen = false;
+            }
 
             Currentangle += angleIcrement;
         }
