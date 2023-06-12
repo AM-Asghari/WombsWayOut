@@ -12,20 +12,6 @@ public class DoorOpening : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("opened", open);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("player"))
-        {
-            open = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("player"))
-        {
-            open = false;
-        }
+        animator.enabled = open;
     }
 }
