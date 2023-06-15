@@ -6,15 +6,18 @@ public class FlesEnemy : MonoBehaviour
 {
     public bool isrunning;
     public Animator animator;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool hit;
 
-    // Update is called once per frame
     void Update()
     {
             animator.SetBool("running", isrunning);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            hit = true;
+        }
+    }
+
 }
