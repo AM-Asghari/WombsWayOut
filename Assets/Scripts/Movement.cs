@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetAxis("Horizontal") != 0|| Input.GetAxis("Vertical") != 0)
         {
+            print("movement");
             transform.Translate(speed * Time.deltaTime * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized);
         }
         if(Input.GetAxis("CameraRotation") != 0)
