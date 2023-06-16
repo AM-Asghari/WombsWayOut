@@ -17,9 +17,9 @@ public class Movement : MonoBehaviour
             print("movement");
             transform.Translate(speed * Time.deltaTime * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized);
         }
-        if(Input.GetAxis("CameraRotation") != 0)
+        if(Input.GetAxis("Fire1") > 0 || Input.GetAxis("Fire2")>0)
         {
-            transform.Rotate(0,Input.GetAxis("CameraRotation") * Time.deltaTime * cameraRotationSpeed, 0);
+            transform.Rotate(0,(Input.GetAxis("Fire1") - Input.GetAxis("Fire2")) * Time.deltaTime * cameraRotationSpeed, 0);
         }
     }
 }
