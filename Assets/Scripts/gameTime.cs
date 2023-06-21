@@ -7,7 +7,7 @@ public class gameTime : MonoBehaviour
 {
     private float sec, min, h;
     public TextMeshProUGUI text;
-    public Ending ending;
+    public theEnd ending;
     void Update()
     {
         sec += Time.deltaTime;

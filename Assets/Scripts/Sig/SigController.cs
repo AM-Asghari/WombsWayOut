@@ -39,7 +39,7 @@ public class SigController : MonoBehaviour
             if (colorFade < 1)
             {
                 colorFade += Time.deltaTime * colorIncrease;
-                RenderSettings.fogColor = new Color(0.9f + 0.1f * colorFade, 0.5f + 0.3f * colorFade, 0.5f + 0.3f * colorFade);
+                RenderSettings.fogColor = new Color(0.6f + 0.4f * colorFade, 0.3f + 0.5f * colorFade, 0.3f + 0.5f * colorFade);
             }
         }
         else if (currTime >= time)
@@ -57,7 +57,7 @@ public class SigController : MonoBehaviour
             else
             {
                 colorFade -= Time.deltaTime * colorIncrease;
-                RenderSettings.fogColor = new Color(0.9f + 0.1f * colorFade, 0.5f + 0.3f * colorFade, 0.5f + 0.3f * colorFade);
+                RenderSettings.fogColor = new Color(0.6f + 0.4f * colorFade, 0.3f + 0.5f * colorFade, 0.3f + 0.5f * colorFade);
             }
         }
     }

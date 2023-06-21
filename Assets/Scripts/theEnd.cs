@@ -6,13 +6,14 @@ using UnityEngine.UI;
 using Unity.Mathematics;
 using UnityEngine.SceneManagement;
 
-public class Ending : MonoBehaviour
+public class theEnd : MonoBehaviour
 {
     public Image white;
     public GameObject birthCert;
-    public float time,time2;
+    public AudioSource vicSound, loopSound;
+    public float time, time2;
     private float currTime2;
-    public bool ended = false, isWhite = false;
+    public bool ended = false, isWhite = false, soundplaying = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
@@ -22,14 +23,14 @@ public class Ending : MonoBehaviour
     }
     private void Update()
     {
-       if(ended) 
+        if (ended)
         {
             print("einde");
-            if(white.color.a < 1 && !isWhite)
+            if (white.color.a < 1 && !isWhite)
             {
                 white.color = new Color(white.color.r, white.color.g, white.color.b, white.color.a + Time.deltaTime * time);
             }
-            else if(!isWhite)
+            else if (!isWhite)
             {
                 isWhite = true;
                 birthCert.SetActive(true);
@@ -37,8 +38,17 @@ public class Ending : MonoBehaviour
             else if (white.color.a > 0)
             {
                 white.color = new Color(white.color.r, white.color.g, white.color.b, white.color.a - Time.deltaTime * time);
+                if (white.color.a > 0.1f)
+                {
+                    vicSound.Play();
+                }
             }
-            else if(currTime2 < time2)
+            else if (!soundplaying)
+            {
+                soundplaying = true;
+                loopSound.Pause();
+            }
+            else if (currTime2 < time2)
             {
                 currTime2 += Time.deltaTime;
             }
@@ -49,3 +59,4 @@ public class Ending : MonoBehaviour
         }
     }
 }
+
