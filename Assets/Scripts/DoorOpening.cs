@@ -12,6 +12,14 @@ public class DoorOpening : MonoBehaviour
 
     void Update()
     {
-        animator.enabled = open;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Haak"))
+        {
+
+            animator.enabled = true;
+        }
     }
 }
