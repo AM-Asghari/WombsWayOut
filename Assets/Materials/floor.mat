@@ -112,7 +112,7 @@ Material:
     - _ZWrite: 1
     - _density: 180
     - _glossinus: 0
-    - _intensity: 0
+    - _intensity: 0.29
     - _movespeed: 1.5
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

@@ -6,6 +6,7 @@ public class DoorOpening : MonoBehaviour
 {
     public bool open;
     public Animator animator;
+    public AudioSource[] doors;
     void Start()
     {
     }
@@ -17,12 +18,16 @@ public class DoorOpening : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("hit");
         if (other.gameObject.CompareTag("Haak"))
         {
             open = true;
-            print("haak");
-
+            if (!open)
+            {
+                foreach (var door in doors)
+                {
+                    door.Play();
+                }
+            }
         }
     }
 }

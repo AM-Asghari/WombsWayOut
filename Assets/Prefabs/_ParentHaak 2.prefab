@@ -141,7 +141,7 @@ MonoBehaviour:
   VisionConeResolution: 120
   target: {fileID: 0}
   Spawnpoints: []
-  range: 5
+  range: 10
   centrePoint: {fileID: 0}
 --- !u!1001 &1634660570567929910
 PrefabInstance:
